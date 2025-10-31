@@ -1,0 +1,34 @@
+turno(1). turno(2). turno(3). turno(4). turno(5).
+turno(6). turno(7). turno(8). turno(9). turno(10).
+
+0.5::cara1(T) :- turno(T).
+0.5::cara2(T) :- turno(T).
+ambas_caras(T) :- cara1(T), cara2(T).
+exito_caso1 :- ambas_caras(T).
+query(exito_caso1).
+
+turno2(1). turno2(2). turno2(3). turno2(4). turno2(5).
+turno2(6). turno2(7). turno2(8). turno2(9). turno2(10).
+
+0.1::sello1(T) :- turno2(T).
+0.9::sello2(T) :- turno2(T).
+ambos_sello(T) :- sello1(T), sello2(T).
+exito_caso2 :- ambos_sello(T).
+query(exito_caso2).
+
+turno3(1). turno3(2). turno3(3). turno3(4). turno3(5).
+turno3(6). turno3(7). turno3(8). turno3(9). turno3(10).
+
+0.9::cara1c3(T)  :- turno3(T).
+0.1::sello1c3(T) :- turno3(T).
+0.9::cara2c3(T)  :- turno3(T).
+0.1::sello2c3(T) :- turno3(T).
+
+ambos_sello_c3(T) :- sello1c3(T), sello2c3(T).
+ambas_caras_c3(T) :- cara1c3(T), cara2c3(T).
+
+exito_sello_c3 :- ambos_sello_c3(T).
+exito_cara_c3  :- ambas_caras_c3(T).
+
+query(exito_sello_c3).
+query(exito_cara_c3).
